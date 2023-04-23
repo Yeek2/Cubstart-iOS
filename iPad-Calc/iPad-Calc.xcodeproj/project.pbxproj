@@ -16,6 +16,7 @@
 		595B530529F4E61A00AEA16B /* BasicArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B530429F4E61A00AEA16B /* BasicArithmetic.swift */; };
 		595B530729F4E62900AEA16B /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B530629F4E62900AEA16B /* ButtonType.swift */; };
 		595B530929F4E63900AEA16B /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B530829F4E63800AEA16B /* Numbers.swift */; };
+		595B530B29F591E800AEA16B /* ShortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B530A29F591E800AEA16B /* ShortButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		595B530429F4E61A00AEA16B /* BasicArithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicArithmetic.swift; sourceTree = "<group>"; };
 		595B530629F4E62900AEA16B /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
 		595B530829F4E63800AEA16B /* Numbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numbers.swift; sourceTree = "<group>"; };
+		595B530A29F591E800AEA16B /* ShortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				595B530429F4E61A00AEA16B /* BasicArithmetic.swift */,
 				595B530629F4E62900AEA16B /* ButtonType.swift */,
 				595B530829F4E63800AEA16B /* Numbers.swift */,
+				595B530A29F591E800AEA16B /* ShortButton.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				595B530B29F591E800AEA16B /* ShortButton.swift in Sources */,
 				595B530529F4E61A00AEA16B /* BasicArithmetic.swift in Sources */,
 				595B530729F4E62900AEA16B /* ButtonType.swift in Sources */,
 				595B530929F4E63900AEA16B /* Numbers.swift in Sources */,
