@@ -1,4 +1,3 @@
-//
 //  ShortButton.swift
 //  iPad-Calc
 //
@@ -7,7 +6,7 @@
 
 import SwiftUI
 
-struct ShortButton: View {
+struct CircleButtonVert: View {
     var title: String
     var action: () -> Void
     var color: Color
@@ -17,8 +16,7 @@ struct ShortButton: View {
         Button(action: action) {
             Text(title)
                 .frame(width: 150, height: 150)
-                .fontWeight(.bold)
-                .font(.title)
+                .font(.system(size: 60))
                 .padding()
                 .background(color)
                 .foregroundColor(textColor)
