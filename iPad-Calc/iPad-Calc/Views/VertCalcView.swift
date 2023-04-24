@@ -18,7 +18,9 @@ struct VertCalcView: View {
                 .font(.system(size:172, weight: .light))
                 .lineLimit(1)
                 .minimumScaleFactor(0.2)
-            //ButtonPad goes here
+            //colorOfNums need to be set to the right color
+            //colorOF3 also but now we can customize the colors
+            ButtonPadVert(colorOfOps: Color.orange, colorOfNums: Color.blue, colorOf3: Color.gray)
         }
         .background(Color.black)
     }

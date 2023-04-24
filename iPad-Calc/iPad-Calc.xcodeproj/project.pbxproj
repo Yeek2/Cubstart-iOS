@@ -16,6 +16,8 @@
 		595B530529F4E61A00AEA16B /* BasicArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B530429F4E61A00AEA16B /* BasicArithmetic.swift */; };
 		595B530729F4E62900AEA16B /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B530629F4E62900AEA16B /* ButtonType.swift */; };
 		595B530929F4E63900AEA16B /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B530829F4E63800AEA16B /* Numbers.swift */; };
+		595B530E29F6FC8000AEA16B /* CircleButtonVert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B530D29F6FC8000AEA16B /* CircleButtonVert.swift */; };
+		595B531029F6FCC400AEA16B /* ButtonPadVert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B530F29F6FCC400AEA16B /* ButtonPadVert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		595B530429F4E61A00AEA16B /* BasicArithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicArithmetic.swift; sourceTree = "<group>"; };
 		595B530629F4E62900AEA16B /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
 		595B530829F4E63800AEA16B /* Numbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numbers.swift; sourceTree = "<group>"; };
+		595B530D29F6FC8000AEA16B /* CircleButtonVert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonVert.swift; sourceTree = "<group>"; };
+		595B530F29F6FCC400AEA16B /* ButtonPadVert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPadVert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,7 @@
 		595B52EC29F4E19B00AEA16B /* iPad-Calc */ = {
 			isa = PBXGroup;
 			children = (
+				595B530C29F6FC2F00AEA16B /* VerticalViewObjects */,
 				595B530129F4E58C00AEA16B /* Style */,
 				595B530029F4E56600AEA16B /* Objects */,
 				595B52FF29F4E51600AEA16B /* Views */,
@@ -104,6 +109,15 @@
 				595B530229F4E5E100AEA16B /* CalcStyle.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		595B530C29F6FC2F00AEA16B /* VerticalViewObjects */ = {
+			isa = PBXGroup;
+			children = (
+				595B530D29F6FC8000AEA16B /* CircleButtonVert.swift */,
+				595B530F29F6FCC400AEA16B /* ButtonPadVert.swift */,
+			);
+			path = VerticalViewObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,8 +190,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				595B530E29F6FC8000AEA16B /* CircleButtonVert.swift in Sources */,
 				595B530529F4E61A00AEA16B /* BasicArithmetic.swift in Sources */,
 				595B530729F4E62900AEA16B /* ButtonType.swift in Sources */,
+				595B531029F6FCC400AEA16B /* ButtonPadVert.swift in Sources */,
 				595B530929F4E63900AEA16B /* Numbers.swift in Sources */,
 				595B52F029F4E19B00AEA16B /* ContentView.swift in Sources */,
 				595B52EE29F4E19B00AEA16B /* iPad_CalcApp.swift in Sources */,
