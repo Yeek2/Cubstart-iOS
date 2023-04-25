@@ -11,7 +11,7 @@ struct VertCalcView: View {
     var body: some View {
         VStack{
             Spacer()
-            Text("0")
+//            Text("0")
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .foregroundColor(.white)
