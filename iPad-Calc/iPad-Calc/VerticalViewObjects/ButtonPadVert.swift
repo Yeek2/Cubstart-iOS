@@ -46,10 +46,13 @@ enum Operation {
 
     
 struct ButtonPadVert: View {
-    var colorOfOps : Color
-    var colorOfNums : Color
-    var colorOf3 : Color
-    @State var value = "0"
+//    var colorOfOps : Color
+//    var colorOfNums : Color
+//    var colorOf3 : Color
+    
+    @State var currValue = "0"
+    @State var nextValue = "0"
+    @State var doingOp = false
     @State var mathVal = 0.0
     @State var currOp: Operation = .none
 
@@ -67,9 +70,14 @@ struct ButtonPadVert: View {
 
             VStack {
                 Spacer()
+                Text("Current Value \(currValue)").foregroundColor(.white)
+                Text("Next Value \(nextValue)").foregroundColor(.white)
+                Text("Math Val \(mathVal)").foregroundColor(.white)
+                Text("doing op \(doingOp.description)").foregroundColor(.white)
                 HStack {
                     Spacer()
-                    Text(value)
+    
+                    Text("\(doingOp ? nextValue : currValue)")
                         .bold()
                         .font(.system(size: 100))
                         .foregroundColor(.white)
@@ -98,56 +106,80 @@ struct ButtonPadVert: View {
         case .add, .subtract, .mutliply, .divide, .neg, .equal:
             if button == .add {
                 self.currOp = .add
-                self.mathVal = Double(self.value) ?? 0
+                self.mathVal = Double(self.currValue) ?? 0
+                self.doingOp = true
             }
             else if button == .subtract {
                 self.currOp = .subtract
-                self.mathVal = Double(self.value) ?? 0
+                self.mathVal = Double(self.currValue) ?? 0
+                self.doingOp = true
             }
             else if button == .mutliply {
                 self.currOp = .multiply
-                self.mathVal = Double(self.value) ?? 0
+                self.mathVal = Double(self.currValue) ?? 0
+                self.doingOp = true
             }
             else if button == .divide {
                 self.currOp = .divide
-                self.mathVal = Double(self.value) ?? 0
+                self.mathVal = Double(self.currValue) ?? 0
+                self.doingOp = true
             }
             else if button == .neg {
                 self.currOp = .neg
-                self.mathVal = Double(self.value) ?? 0
+                self.mathVal = Double(self.currValue) ?? 0
+                self.doingOp = true
             }
             else if button == .equal {
                 let mathVal = self.mathVal
-                let currVal = Double(self.value) ?? 0.0
+                let nextVal = Double(self.nextValue) ?? 0.0
+                
                 switch self.currOp {
-                case .add: self.value = "\(mathVal + currVal)"
-                case .subtract: self.value = "\(mathVal - currVal)"
-                case .multiply: self.value = "\(mathVal * currVal)"
-                case .divide: self.value = "\(mathVal / currVal)"
-                case .neg: self.value = "\(-1 * currVal)"
+                case .add:
+                    self.currValue = "\(mathVal + nextVal)"
+                    
+                case .subtract:
+                    self.currValue = "\(mathVal - nextVal)"
+                case .multiply:
+                    self.currValue = "\(mathVal * nextVal)"
+                case .divide:
+                    self.currValue = "\(mathVal / nextVal)"
+                case .neg:
+                    self.currValue = "\(-1 * mathVal)"
                 case .none:
                     break
                 }
+                self.doingOp = false
+                self.nextValue = "0"
             }
-
-        if button != .equal {
-            self.value = value
-            }
+            
         case .clear:
-            self.value = "0"
+            self.currValue = "0"
+            self.nextValue = "0"
+            self.mathVal = 0.0
+            self.doingOp = false
         case .neg: // doesnt change to neg when clicked
-            self.value = "-\(value)"
+            self.currValue = "-\(currValue)"
         case .decimal, .percent:
             break
         default:
             let number = button.rawValue
-            if self.value == "0" {
-                value = number
+            
+            if doingOp == true {
+                if self.nextValue == "0" {
+                    self.nextValue = number
+                    
+                } else {
+                    self.nextValue += number
+                }
+            } else {
+                if self.currValue == "0" {
+                    self.currValue = number
+                    
+                } else {
+                    self.currValue += number
+                }
             }
             
-            else {
-                self.value = "\(number)"
-            }
         }
     }
 
