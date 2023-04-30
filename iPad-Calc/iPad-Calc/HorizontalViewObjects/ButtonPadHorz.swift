@@ -1,18 +1,14 @@
 //
-//  ButtonPadVert.swift
+//  ButtonPadHorz.swift
 //  iPad-Calc
 //
-//  Created by Jeffrey Millan on 4/29/23.
-// 10+10+10== --->40 on iphone calculator
-// 10+10+10== ----> 50 on ours but I think its fine most people wont do double == i think
+//  Created by Jeffrey Millan on 4/30/23.
+//
 
 import SwiftUI
 
-enum Operation {
-    case none, add, subtract, multiply, divide
-}
 
-struct ButtonPadVert: View {
+struct ButtonPadHorz: View {
     @State private var currentNumber: String = "0"
     @State private var displayNumber: String = "0"
     @State private var storedNumber: Double = 0
@@ -20,11 +16,11 @@ struct ButtonPadVert: View {
     @State private var isDoingOp = false
     
     let buttons = [
-        ["AC", "+/_", "%", "÷"],
-        ["7", "8", "9", "×"],
-        ["4", "5", "6", "-"],
-        ["1", "2", "3", "+"],
-        ["0", ".", "="]
+        ["(", ")", "mc", "m+", "m-", "mr", "AC", "+/_", "%", "÷"],
+        ["2nd", "x^2", "x^3", "x^y", "e^x", "10^x", "7", "8", "9", "×"],
+        ["1/x", "sqrt", "cubrt", "yrt", "ln", "log10","4", "5", "6", "-"],
+        ["x!", "sin", "cos", "tan", "e", "EE","1", "2", "3", "+"],
+        ["Rad", "sinh", "cosh", "tanh", "pi", "Rand","0", ".", "="]
     ]
     
     var body: some View {
@@ -35,7 +31,7 @@ struct ButtonPadVert: View {
             Text(displayNumber)
                 .font(.system(size: 150))
                 .foregroundColor(.white)
-                .padding(.trailing, 250)
+                .padding(.trailing, 100)
                 .multilineTextAlignment(.trailing)
                 .frame(maxWidth: .infinity, alignment: .trailing)
             
@@ -47,7 +43,7 @@ struct ButtonPadVert: View {
                                 self.buttonTapped(button)
                             }) {
                                 Text(button)
-                                    .font(.system(size: 48))
+                                    .font(.system(size: 32))
                                     .frame(width: buttonWidth(button), height: buttonHeight())
                                     .background(buttonColor(button))
                                     .foregroundColor(buttonTextColor(button))
@@ -179,7 +175,7 @@ struct ButtonPadVert: View {
     }
     
     private func buttonWidth(_ button: String) -> CGFloat {
-        let num = 150.0//((UIScreen.main.bounds.width - 5 * 12) / 4)
+        let num = 120.0//((UIScreen.main.bounds.width - 5 * 12) / 4)
         if button == "0" {
             return num * 2
         }
@@ -188,7 +184,7 @@ struct ButtonPadVert: View {
     }
     
     private func buttonHeight() -> CGFloat {
-        let num = 150.0//(UIScreen.main.bounds.width - 5 * 12) / 4
+        let num = 100.0//(UIScreen.main.bounds.width - 5 * 12) / 4
         return num
     }
     private func buttonColor(_ button: String) -> Color {

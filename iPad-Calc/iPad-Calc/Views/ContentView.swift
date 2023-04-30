@@ -8,15 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var orientation = UIDevice.current.orientation
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        Group {
+            if orientation.isLandscape {
+                ButtonPadHorz()
+            } else {
+                ButtonPadVert()
+            }
         }
-        .padding()
+        .onAppear {
+            NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
+                orientation = UIDevice.current.orientation
+            }
+        }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

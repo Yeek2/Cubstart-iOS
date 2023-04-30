@@ -19,6 +19,7 @@
 		595B530E29F6FC8000AEA16B /* CircleButtonVert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B530D29F6FC8000AEA16B /* CircleButtonVert.swift */; };
 		595B531029F6FCC400AEA16B /* ButtonPadVert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B530F29F6FCC400AEA16B /* ButtonPadVert.swift */; };
 		595B531329F7814C00AEA16B /* ButtonHorz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B531229F7814C00AEA16B /* ButtonHorz.swift */; };
+		59CAC47A29FEE27A002D8DA3 /* ButtonPadHorz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CAC47929FEE27A002D8DA3 /* ButtonPadHorz.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		595B530D29F6FC8000AEA16B /* CircleButtonVert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonVert.swift; sourceTree = "<group>"; };
 		595B530F29F6FCC400AEA16B /* ButtonPadVert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPadVert.swift; sourceTree = "<group>"; };
 		595B531229F7814C00AEA16B /* ButtonHorz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHorz.swift; sourceTree = "<group>"; };
+		59CAC47929FEE27A002D8DA3 /* ButtonPadHorz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPadHorz.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				595B531229F7814C00AEA16B /* ButtonHorz.swift */,
+				59CAC47929FEE27A002D8DA3 /* ButtonPadHorz.swift */,
 			);
 			path = HorizontalViewObjects;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				595B52F029F4E19B00AEA16B /* ContentView.swift in Sources */,
 				595B52EE29F4E19B00AEA16B /* iPad_CalcApp.swift in Sources */,
 				595B530329F4E5E100AEA16B /* CalcStyle.swift in Sources */,
+				59CAC47A29FEE27A002D8DA3 /* ButtonPadHorz.swift in Sources */,
 				595B52FE29F4E25700AEA16B /* VertCalcView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
