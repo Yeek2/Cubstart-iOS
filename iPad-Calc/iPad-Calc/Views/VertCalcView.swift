@@ -20,7 +20,7 @@ struct VertCalcView: View {
                 .minimumScaleFactor(0.2)
             //colorOfNums need to be set to the right color
             //colorOF3 also but now we can customize the colors
-            ButtonPadVert()
+            //ButtonPadVert()
         }
         .background(Color.black)
     }
