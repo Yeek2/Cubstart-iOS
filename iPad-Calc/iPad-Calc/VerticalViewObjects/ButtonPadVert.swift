@@ -1,9 +1,10 @@
 //
-//  testing.swift
+//  ButtonPadVert.swift
 //  iPad-Calc
 //
 //  Created by Jeffrey Millan on 4/29/23.
-//
+// 10+10+10== --->40 on iphone calculator
+// 10+10+10== ----> 50 on ours but I think its fine most people wont do double == i think
 
 import SwiftUI
 
@@ -66,6 +67,7 @@ struct ButtonPadVert: View {
     }
     
     private func buttonTapped(_ button: String) {
+
         switch button {
         case "AC":
             clearAll()
@@ -111,14 +113,31 @@ struct ButtonPadVert: View {
     }
     
     private func performOperation(_ operation: Operation) {
+        self.operation = operation
         if currentNumber == "0" {
             return
+        } else {
+            if isDoingOp {
+                let current = Double(currentNumber)!
+                
+                switch operation {
+                    case .add:
+                        currentNumber = String(storedNumber + current)
+                    case .subtract:
+                        currentNumber = String(storedNumber - current)
+                    case .multiply:
+                        currentNumber = String(storedNumber * current)
+                    case .divide:
+                        currentNumber = String(storedNumber / current)
+                    default:
+                        break
+                }
+            }
         }
-        self.isDoingOp = true
-        self.operation = operation
-        storedNumber = Double(currentNumber)!
         displayNumber = currentNumber
+        storedNumber = Double(currentNumber)!
         currentNumber = "0"
+        self.isDoingOp = true
     }
     private func clearAll() {
         self.currentNumber = "0"
@@ -159,6 +178,7 @@ struct ButtonPadVert: View {
         default:
             break
         }
+        isDoingOp = false
         displayNumber = currentNumber
     }
     
