@@ -81,6 +81,15 @@ struct ButtonPadHorz: View {
             performOperation(.divide)
         case "=":
             performEquals()
+        case "mc":
+            storedNumber = 0
+        case "m+":
+            performOperation(.subtract)
+        case "m-":
+            performOperation(.subtract)
+        case "mr":
+            currentNumber = String(storedNumber)
+            displayNumber = currentNumber
         case "x^2":
             powerOf(x: Double(currentNumber)!, y: 2)
         case "x^3":
