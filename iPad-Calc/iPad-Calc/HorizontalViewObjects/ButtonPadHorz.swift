@@ -37,7 +37,8 @@ struct ButtonPadHorz: View {
                 .foregroundColor(.white)
                 .padding(.trailing, 100)
                 .multilineTextAlignment(.trailing)
-                .frame(maxWidth: .infinity, alignment: .trailing)
+                .frame(maxWidth: 1366, alignment: .trailing)
+                .truncationMode(.tail)
             
             VStack(spacing: 12) {
                 ForEach(buttons, id: \.self) { row in
@@ -90,6 +91,7 @@ struct ButtonPadHorz: View {
         case "mr":
             currentNumber = String(storedNumber)
             displayNumber = currentNumber
+            displayNumber = shortenString(s: displayNumber)
         case "x^2":
             powerOf(x: Double(currentNumber)!, y: 2)
         case "x^3":
@@ -103,6 +105,7 @@ struct ButtonPadHorz: View {
         case "1/x":
             currentNumber = String(1/Double(currentNumber)!)
             displayNumber = currentNumber
+            displayNumber = shortenString(s: displayNumber)
         case "sqrt":
             powerOf(x: Double(currentNumber)!, y: 1/2)
         case "cubrt":
@@ -124,6 +127,7 @@ struct ButtonPadHorz: View {
         case "e":
             currentNumber = String(e)
             displayNumber = currentNumber
+            displayNumber = shortenString(s: displayNumber)
         /* case "EE":
             currentNumber = String(e)
             displayNumber = currentNumber */
@@ -143,9 +147,11 @@ struct ButtonPadHorz: View {
         case "pi":
             currentNumber = String(pi)
             displayNumber = currentNumber
+            displayNumber = shortenString(s: displayNumber)
         case "Rand":
             currentNumber = String(Double(arc4random()))
             displayNumber = currentNumber
+            displayNumber = shortenString(s: displayNumber)
         default:
             if let number = Int(button) {
                 appendNumber(number)
@@ -153,6 +159,24 @@ struct ButtonPadHorz: View {
                 appendDecimal()
             }
         }
+    }
+    private func shortenString(s : String) -> String {
+        let trimToCharacter = 14
+        let trimToCharacter2 = 10
+        var d = Double(s)!
+        var count = 0
+        var shortString = ""
+        if(d > 1000000) {
+            while(d >= 10){
+                d /= 10.0
+                count+=1
+            }
+            shortString = String(d).prefix(trimToCharacter2) + "e+" + String(count)
+        }
+        else {
+            shortString = String(s.prefix(trimToCharacter))
+        }
+        return shortString
     }
     private func appendNumber(_ number: Int) {
         if currentNumber == "0" {
@@ -202,11 +226,13 @@ struct ButtonPadHorz: View {
     private func powerOf(x: Double, y: Double) {
         currentNumber = String(pow(x, y))
         displayNumber = currentNumber
+        displayNumber = shortenString(s: displayNumber)
     }
     private func logfn(x: Double, y: Double){
         let current = log(x)/log(y)
         currentNumber = String(current)
         displayNumber = currentNumber
+        displayNumber = shortenString(s: displayNumber)
     }
     private func fact(x: Int){
         var count = x
@@ -219,6 +245,7 @@ struct ButtonPadHorz: View {
         }
         currentNumber = String(current)
         displayNumber = currentNumber
+        displayNumber = shortenString(s: displayNumber)
     }
     private func performTrig(x: Double, y: String) {
         var current = 0.0
@@ -240,6 +267,7 @@ struct ButtonPadHorz: View {
         }
         currentNumber = String(current)
         displayNumber = currentNumber
+        displayNumber = shortenString(s: displayNumber)
     }
     private func clearAll() {
         self.currentNumber = "0"
@@ -282,6 +310,7 @@ struct ButtonPadHorz: View {
         }
         isDoingOp = false
         displayNumber = currentNumber
+        displayNumber = shortenString(s: displayNumber)
     }
     
     private func buttonWidth(_ button: String) -> CGFloat {

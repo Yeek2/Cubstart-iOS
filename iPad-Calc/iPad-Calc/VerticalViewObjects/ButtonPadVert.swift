@@ -97,6 +97,7 @@ struct ButtonPadVert: View {
             currentNumber.append(String(number))
         }
         displayNumber = currentNumber
+        displayNumber = shortenString(s: displayNumber)
     }
     
     private func appendDecimal() {
@@ -106,6 +107,7 @@ struct ButtonPadVert: View {
         
         currentNumber.append(".")
         displayNumber = currentNumber
+        displayNumber = shortenString(s: displayNumber)
     }
     
     private func performOperation(_ operation: Operation) {
@@ -131,9 +133,28 @@ struct ButtonPadVert: View {
             }
         }
         displayNumber = currentNumber
+        displayNumber = shortenString(s: displayNumber)
         storedNumber = Double(currentNumber)!
         currentNumber = "0"
         self.isDoingOp = true
+    }
+    private func shortenString(s : String) -> String {
+        let trimToCharacter = 7
+        let trimToCharacter2 = 5
+        var d = Double(s)!
+        var count = 0
+        var shortString = ""
+        if(d > 1000000) {
+            while(d >= 10){
+                d /= 10.0
+                count+=1
+            }
+            shortString = String(d).prefix(trimToCharacter2) + "e+" + String(count)
+        }
+        else {
+            shortString = String(s.prefix(trimToCharacter))
+        }
+        return shortString
     }
     private func clearAll() {
         self.currentNumber = "0"
@@ -176,6 +197,7 @@ struct ButtonPadVert: View {
         }
         isDoingOp = false
         displayNumber = currentNumber
+        displayNumber = shortenString(s: displayNumber)
     }
     
     private func buttonWidth(_ button: String) -> CGFloat {
