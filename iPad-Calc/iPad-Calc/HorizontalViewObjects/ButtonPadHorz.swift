@@ -92,7 +92,8 @@ struct ButtonPadHorz: View {
         case "10^x":
             powerOf(x: 10, y: Double(currentNumber)!)
         case "1/x":
-            inv(x: Double(currentNumber)!)
+            currentNumber = String(1/Double(currentNumber)!)
+            displayNumber = currentNumber
         case "sqrt":
             powerOf(x: Double(currentNumber)!, y: 1/2)
         case "cubrt":
@@ -191,10 +192,6 @@ struct ButtonPadHorz: View {
     }
     private func powerOf(x: Double, y: Double) {
         currentNumber = String(pow(x, y))
-        displayNumber = currentNumber
-    }
-    private func inv(x: Double) {
-        currentNumber = String(1/x)
         displayNumber = currentNumber
     }
     private func logfn(x: Double, y: Double){
